@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Time Series Forecasting</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
+						<a href="index.html" class="logo"><strong>Johnathan</strong> <span>Pham Portfolio</span></a>
+						<li><a href="#" class="button small">To Top</a></li>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Landing</a></li>
+							<li><a href="generic.html">Generic</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Time Series Forecasting - Energy Demand</h1>
+							</header>
+							
+							<ul class="icons">
+								<t>Jump to:</t><br \>
+								<li><a href="#one" class="button small">Overview</a></li>
+								<li><a href="#two" class="button small">Area of Study</a></li>
+								<li><a href="#three" class="button small">SARIMA</a></li>
+								<li><a href="#four" class="button small">ACF & PACF</a></li>
+								<li><a href="#five" class="button small">Grid Search</a></li>
+								<li><a href="#six" class="button small">Results</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+								
+									<header class="major">
+										<h2>Overview</h2>
+									</header>
+									<p>Utilizing hourly data of electrical loads from Duke Energy Ohio and Kentucky Corp. (DEO&K) and joining historical air temperature data from Cincinnati Northern Kentucky International Airport, future energy consumption can be modeled and predicted by time series forecasting. Time series forecasting is a data science technique that analyzes time series data using statistics and modeling to make predictions and inform strategic decisions (Lazzeri, 2021). This project will predict the amount of electricity DEO&K will use over the next year.
+
+								</div>
+							</section>
+						</div>
+						<!-- Two -->
+							<section id="two" class="spotlights">
+								<section>
+									<a href="generic.html" class="image">
+										<img src="images/AreaofStudy.png" alt="" data-position="center center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Area of Study</h3>
+											</header>
+											<p>DEO&K covers the southwest tip of Ohio and a small area of northern Kentucky. Duke Energy is based in Charlotte, North Carolina which has subsidiaries in the studied area. As of 2022, DEO&K serves 880,000 residential, commercial, and industrial customers in a 3,000-square-mile service area, and natural gas service to 550,000 customers in a 2,650-square-mile service area. It is unknown the amount of energy storage DEO&K has, but collectively Duke Energy (which includes North Carolina, South Carolina, Florida, Indiana, Ohio, and Kentucky) owns 50,000 MW of energy capacity. The dataset was obtained on Kaggle, provided by PJM Interconnection LLC.</p>
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="generic.html" class="image">
+										<img src="" alt="" data-position="top center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Model Predictions</h3>
+											</header>
+											<p>The model forecasts January 1st, 2017 to August 3rd, 2018 in both weekly and monthly datasets.</p>
+											
+										</div>
+										<div class="image">
+											<img src="images/WeeklyPred.jpg" /><br />
+											<img src="images/MonthlyPred.jpg">
+										</div>
+									</div>
+								</section>
+							</section>	
+							
+						<!-- Three -->
+							<section id="three">
+								<div class="inner">
+									<header class="major">
+										<h2>Seasonal Auto-Regressive Integrated Moving Average</h2>
+									</header>
+									<p>Seasonal ARIMA (SARIMA) time series model is created by adding seasonal terms to the ARIMA model. SARIMA is written as ARIMA (p, d, q) x (P, D, Q) s where p is the order of nonseasonal autoregression, d is the number of regular differencing, q the order of nonseasonal MA, P the order of seasonal autoregression, D the number of seasonal differencing, Q is the order of seasonal MA, and s is the number of datapoints collected per season (Lazzeri, 2021).
+
+										The first part of the ARIMA model contains the order of the non-seasonal parameters while the orders of the seasonal parameters are contained in the second part. The ARIMA model is chosen by determining parameters p, d, and q (Astuti & Jamaludin, 2018).</p>							<ul class="actions">
+										
+									</ul>
+								</div>
+							</section>	
+
+						<!-- Four -->
+						<section id="four">
+							<div class="inner">
+								<header class="major">
+									<h2>Autocorrelation Function (ACF) and Partial Correlation Function (PACF)</h2>
+								</header>
+								<p>The ACF and PACF are used to determine the appropriate AR(p) and MA(q) starting parameters, a grid search is then performed to find the best combination of patterns (Lazzeri, 2021).
+
+									Weekly ACF exhibits tailing off indicating presence of autoregression (AR(p))</p>
+									<dl>
+										<div class="row">
+											<div class="col-6 col-12-small">
+												<dd>
+													<img src="images/WeeklyACF.jpg" >
+													<p>Weekly ACF exhibits tailing off indicating presence of autoregression (AR(p))</p>
+	
+												</dd>
+											</div>
+											<div class="col-6 col-12-small">
+												<dd>
+													<img src="images/WeeklyPACF.jpg" >
+													<p>Weekly PACF has spikes at 1 and 2. AR(p) = (1,2)</p>
+	
+												</dd>
+											</div>
+											<div class="col-6 col-12-small">
+												<dd>
+													<img src="images/MonthlyACF.jpg" >
+													<p>Monthly ACF exhibits cyclic patterns at lags 1,3,5, and 9 which could mean quarterly effects.</p>
+	
+												</dd>
+											</div>
+											<div class="col-6 col-12-small">
+												<dd>
+													<img src="images/MonthlyPACF.jpg" >
+													<p>Monthly PACF has spikes at 1, 2, 3, and 5. AR(p) = (1,2). Because of limiting processing power AR(3,5) will not be studied.</p>
+	
+												</dd>
+											</div>
+										</div>
+									</dl>
+							</div>
+						</section>	
+
+						<!-- Five -->
+						<section id="five">
+							<div class="inner">
+								<header class="major">
+									<h2>Grid Search</h2>
+								</header>
+								<p>Grid Searching is an exhaustive search over a range of parameters. Doing this technique can test for all p, q, and d parameters ensures that we have the best model for prediction (Lazzeri, 2021).
+
+									Akaike’s Information Criterion (AIC) is used to determine SARIMA model parameters. The lowest AIC value will result in the best forecasting model (Stoica & Selén, 2004).
+									
+									Parameters p and q were given a range 0-3 (not inclusive) and d 0-2 (not inclusive). These ranges were set from the ACF and PACF from the previous section.</p>
+								<dl>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<dd>
+												<img src="images/WeeklyAIC.png" >
+
+											</dd>
+										</div>
+										<div class="col-6 col-12-small">
+											<dd>
+												<img src="images/MonthlyAIC.png" >
+
+											</dd>
+										</div>
+										
+									</div>
+								</dl>
+							</div>
+						</section>	
+
+					<!-- Six -->
+					<section id="six">
+						<div class="inner">
+							<header class="major">
+								<h2>Results</h2>
+							</header>
+							<p>Although visually the predictions of both models take the shape of the general dataset, statistical measures are high in both models.</p>
+							<div class="image">
+								<img src="images\Results.png" />
+							</div>
+						</div>
+					</section>							
+				
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							
+							<ul class="copyright">
+								<li>&copy; Open Source</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
